@@ -17,37 +17,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void BroadCastReceiverDemo(View view) {
 
-       //  Intent intent = new Intent(this, MyFirstReceiver.class);
-        Intent intent = new Intent("my.custome.third.receiver");
+    public void priorityMethod(View view) {
 
-        // send data by activity to Receiver
-        intent.putExtra("name", "rohan dhiman");
-        intent.putExtra("age", 25);
-        // custom way send
-        sendBroadcast(intent);
-
-    }
-
-    public void ThirdReceiverInnerClassMethod(View view) {
-       // Intent intent = new Intent(this, MyThirdReceiverInnerClass.class);
-
-        // custom way send
-
-        Intent intent = new Intent("my.third.receiver");
-
-        // another way send data by bundle
-        Bundle bundle = new Bundle();
-        bundle.putString("name", "rohan hacker");
-        bundle.putInt("age", 25);
-        intent.putExtras(bundle);
-
-        sendBroadcast(intent);
-        
-        // Broadcast receiver background (asynchronously) request
-        Toast.makeText(this, "First This metod Call after that all call mean asynchronously reqeust", Toast.LENGTH_SHORT).show();
-
+        Intent intent = new Intent("my.first.receiver");
+        sendOrderedBroadcast(intent, null);
 
     }
 
@@ -58,10 +32,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onReceive(Context context, Intent intent) {
 
-            String name = intent.getStringExtra("name");
-            int age = intent.getIntExtra("age", 20);
-
-            Log.i(TAG, "My Third Receiver Class " + name + " age " + age);
+            Log.i(TAG, "My Third Receiver Class ");
             Toast.makeText(context, "My Third Receiver Class, Threat name current -> " + Thread.currentThread().getName(), Toast.LENGTH_SHORT).show();
 
         }

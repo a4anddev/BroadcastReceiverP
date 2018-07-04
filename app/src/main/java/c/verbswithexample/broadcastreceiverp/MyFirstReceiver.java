@@ -12,10 +12,8 @@ public class MyFirstReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
 
-        String name = intent.getStringExtra("name");
-        int age = intent.getIntExtra("age", 10);
 
-        Log.i(TAG, "HELLO FROM 1ST RECEIVER" + name + " age " + age);
+        Log.i(TAG, "HELLO FROM 1ST RECEIVER");
         Toast.makeText(context, "HELLO FROM 1ST RECEIVER, Threat name current -> " + Thread.currentThread().getName(), Toast.LENGTH_SHORT).show();
 
     }

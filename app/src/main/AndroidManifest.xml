@@ -18,9 +18,9 @@
         </activity>
         <receiver android:name=".SecondReceiver" >
 
-            <intent-filter>
+            <intent-filter android:priority="20">
 
-                <action android:name="my.custome.first.receiver" />
+                <action android:name="my.first.receiver" />
 
             </intent-filter>
 
@@ -29,15 +29,15 @@
 
         <receiver android:name=".MyFirstReceiver">
 
-            <intent-filter>
-                <action android:name="android.intent.action.AIRPLANE_MODE" />
+            <intent-filter android:priority="30">
+                <action android:name="my.first.receiver"  />
 
             </intent-filter>
         </receiver>
         <receiver android:name=".MainActivity$MyThirdReceiverInnerClass">
-        <intent-filter>
+        <intent-filter android:priority="10">
 
-            <action android:name="my.third.receiver" />
+            <action android:name="my.first.receiver" />
         </intent-filter>
 
         </receiver>
