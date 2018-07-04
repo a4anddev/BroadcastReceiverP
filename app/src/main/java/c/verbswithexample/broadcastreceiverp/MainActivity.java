@@ -34,6 +34,9 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent = new Intent("my.custome.first.receiver");
         sendBroadcast(intent);
+        
+        // Broadcast receiver background (asynchronously) request
+        Toast.makeText(this, "First This metod Call after that all call mean asynchronously reqeust", Toast.LENGTH_SHORT).show();
 
 
     }
