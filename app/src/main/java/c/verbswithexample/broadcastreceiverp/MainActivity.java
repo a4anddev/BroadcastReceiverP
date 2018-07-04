@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
 
 
             Log.i(TAG, "My Third Receiver Class");
-            Toast.makeText(context, "My Third Receiver Class", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "My Third Receiver Class, Threat name current -> " + Thread.currentThread().getName(), Toast.LENGTH_SHORT).show();
 
         }
     }

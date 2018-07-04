@@ -12,7 +12,7 @@ public class SecondReceiver extends BroadcastReceiver{
     public void onReceive(Context context, Intent intent) {
 
         Log.i(TAG,"Second receiver");
-        Toast.makeText(context, "Second Receiver", Toast.LENGTH_SHORT).show();
+        Toast.makeText(context, "Second Receiver, Threat name current -> " + Thread.currentThread().getName(), Toast.LENGTH_SHORT).show();
         
     }
 }
