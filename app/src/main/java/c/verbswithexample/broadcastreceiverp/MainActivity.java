@@ -19,13 +19,20 @@ public class MainActivity extends AppCompatActivity {
 
     public void BroadCastReceiverDemo(View view) {
 
-        Intent intent = new Intent(this, MyFirstReceiver.class);
+       //  Intent intent = new Intent(this, MyFirstReceiver.class);
+        Intent intent = new Intent("my.custome.third.receiver");
+
+        // custom way send
         sendBroadcast(intent);
 
     }
 
     public void ThirdReceiverInnerClassMethod(View view) {
-        Intent intent = new Intent(this, MyThirdReceiverInnerClass.class);
+       // Intent intent = new Intent(this, MyThirdReceiverInnerClass.class);
+
+        // custom way send
+
+        Intent intent = new Intent("my.custome.first.receiver");
         sendBroadcast(intent);
 
 

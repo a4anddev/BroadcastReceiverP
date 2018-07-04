@@ -17,8 +17,20 @@
             </intent-filter>
         </activity>
 
-     <receiver android:name=".MyFirstReceiver" />
-        <receiver android:name=".MainActivity$MyThirdReceiverInnerClass" />
+        <receiver android:name=".MyFirstReceiver">
+
+            <intent-filter>
+                <action android:name="my.custome.first.receiver" />
+
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".MainActivity$MyThirdReceiverInnerClass">
+        <intent-filter>
+
+            <action android:name="my.custome.third.receiver" />
+        </intent-filter>
+
+        </receiver>
 
     </application>
 
