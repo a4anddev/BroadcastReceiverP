@@ -16,6 +16,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <receiver android:name=".SecondReceiver" >
+
+            <intent-filter>
+
+                <action android:name="my.custome.first.receiver" />
+
+            </intent-filter>
+
+        </receiver>
+
 
         <receiver android:name=".MyFirstReceiver">
 
@@ -27,7 +37,7 @@
         <receiver android:name=".MainActivity$MyThirdReceiverInnerClass">
         <intent-filter>
 
-            <action android:name="my.custome.third.receiver" />
+            <action android:name="my.custome.first.receiver" />
         </intent-filter>
 
         </receiver>
