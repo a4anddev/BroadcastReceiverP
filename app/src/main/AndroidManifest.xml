@@ -30,7 +30,7 @@
         <receiver android:name=".MyFirstReceiver">
 
             <intent-filter>
-                <action android:name="my.custome.third.receiver" />
+                <action android:name="android.intent.action.AIRPLANE_MODE" />
 
             </intent-filter>
         </receiver>
