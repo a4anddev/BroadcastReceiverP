@@ -35,8 +35,13 @@ public class MainActivity extends AppCompatActivity {
 
         // custom way send
 
-        Intent intent = new Intent("my.custome.first.receiver");
+        Intent intent = new Intent("my.third.receiver");
 
+        // another way send data by bundle
+        Bundle bundle = new Bundle();
+        bundle.putString("name", "rohan hacker");
+        bundle.putInt("age", 25);
+        intent.putExtras(bundle);
 
         sendBroadcast(intent);
         
@@ -53,8 +58,10 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onReceive(Context context, Intent intent) {
 
+            String name = intent.getStringExtra("name");
+            int age = intent.getIntExtra("age", 20);
 
-            Log.i(TAG, "My Third Receiver Class");
+            Log.i(TAG, "My Third Receiver Class " + name + " age " + age);
             Toast.makeText(context, "My Third Receiver Class, Threat name current -> " + Thread.currentThread().getName(), Toast.LENGTH_SHORT).show();
 
         }
