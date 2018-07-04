@@ -22,6 +22,9 @@ public class MainActivity extends AppCompatActivity {
        //  Intent intent = new Intent(this, MyFirstReceiver.class);
         Intent intent = new Intent("my.custome.third.receiver");
 
+        // send data by activity to Receiver
+        intent.putExtra("name", "rohan dhiman");
+        intent.putExtra("age", 25);
         // custom way send
         sendBroadcast(intent);
 
@@ -33,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
         // custom way send
 
         Intent intent = new Intent("my.custome.first.receiver");
+
+
         sendBroadcast(intent);
         
         // Broadcast receiver background (asynchronously) request
@@ -48,12 +53,6 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onReceive(Context context, Intent intent) {
 
-            // this method cash app becuase long time run app
-            try {
-                Thread.sleep(10000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
 
             Log.i(TAG, "My Third Receiver Class");
             Toast.makeText(context, "My Third Receiver Class, Threat name current -> " + Thread.currentThread().getName(), Toast.LENGTH_SHORT).show();
