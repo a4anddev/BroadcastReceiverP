@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     public void methodOne(View view) {
 
            IntentFilter intentFilter = new IntentFilter();
-           intentFilter.addAction(Intent.ACTION_BATTERY_CHANGED);
+        intentFilter.addAction(Intent.ACTION_BATTERY_CHANGED);
 
 
            Intent intent = registerReceiver(null, intentFilter);
@@ -48,5 +48,46 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "Bettery Fully Charged", Toast.LENGTH_SHORT).show();
         }
 
+    }
+
+    public void methodTwo(View view) {
+
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction(Intent.ACTION_BATTERY_CHANGED);
+
+           registerReceiver(batteryStatusReceiver, intentFilter);
+
+
+    }
+
+    private BroadcastReceiver batteryStatusReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+
+            int status = intent.getIntExtra(BatteryManager.EXTRA_STATUS, -1);
+
+            if (status == BatteryManager.BATTERY_STATUS_CHARGING){
+
+                Toast.makeText(context, "Bettery Getting Charged", Toast.LENGTH_SHORT).show();
+            }
+
+            if (status == BatteryManager.BATTERY_STATUS_DISCHARGING){
+
+                Toast.makeText(context, "Bettery Getting Discharged", Toast.LENGTH_SHORT).show();
+            }
+
+            if (status == BatteryManager.BATTERY_STATUS_FULL){
+
+                Toast.makeText(context, "Bettery Fully Charged", Toast.LENGTH_SHORT).show();
+            }
+
+
+        }
+    };
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        unregisterReceiver(batteryStatusReceiver);
     }
 }
