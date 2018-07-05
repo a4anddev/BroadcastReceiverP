@@ -20,8 +20,12 @@ public class MainActivity extends AppCompatActivity {
 
     public void priorityMethod(View view) {
 
+        // send data by order intent tip this data send first priority after that you can modify if you need send set data
+        Bundle b = new Bundle();
+        b.putString("title", "Developer");
         Intent intent = new Intent("my.first.receiver");
-        sendOrderedBroadcast(intent, null);
+        sendOrderedBroadcast(intent,null,null,null,-1,"Android", b);
+
 
     }
 
@@ -32,8 +36,16 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onReceive(Context context, Intent intent) {
 
-            Log.i(TAG, "My Third Receiver Class ");
-            Toast.makeText(context, "My Third Receiver Class, Threat name current -> " + Thread.currentThread().getName(), Toast.LENGTH_SHORT).show();
+
+                int initCode = getResultCode();
+                String initData = getResultData();
+                Bundle initBundle = getResultExtras(true);
+                String title = initBundle.getString("title");
+
+                Log.i(TAG, "My Third Receiver Class " + title);
+                Toast.makeText(context, "My Third Receiver Class, Threat name current -> " + Thread.currentThread().getName(), Toast.LENGTH_SHORT).show();
+                
+
 
         }
     }
