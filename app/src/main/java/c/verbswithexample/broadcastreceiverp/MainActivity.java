@@ -37,15 +37,23 @@ public class MainActivity extends AppCompatActivity {
         public void onReceive(Context context, Intent intent) {
 
 
+            // there is highest priority first run this and we modify data here with set method
+        // we check this is orderbraocast or not with if condition
+            if (isOrderedBroadcast()) {
                 int initCode = getResultCode();
                 String initData = getResultData();
                 Bundle initBundle = getResultExtras(true);
                 String title = initBundle.getString("title");
 
-                Log.i(TAG, "My Third Receiver Class " + title);
-                Toast.makeText(context, "My Third Receiver Class, Threat name current -> " + Thread.currentThread().getName(), Toast.LENGTH_SHORT).show();
-                
+                Log.i(TAG, "Code" + initCode + " Data " + initData + " Bundle " + title);
+                Toast.makeText(context, "Code : ", Toast.LENGTH_SHORT).show();
 
+                // set data here this data get second receiver
+                setResultCode(15);
+                setResultData("ios new");
+                initBundle.putString("title", " Nisha dhiman Developer");
+
+            }
 
         }
     }

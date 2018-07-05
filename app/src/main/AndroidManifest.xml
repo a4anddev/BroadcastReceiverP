@@ -35,7 +35,7 @@
             </intent-filter>
         </receiver>
         <receiver android:name=".MainActivity$MyThirdReceiverInnerClass">
-        <intent-filter android:priority="10">
+        <intent-filter android:priority="40">
 
             <action android:name="my.first.receiver" />
         </intent-filter>
