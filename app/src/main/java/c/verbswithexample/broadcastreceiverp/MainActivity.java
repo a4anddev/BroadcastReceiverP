@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
+        // this application on running state that time work receiver
         IntentFilter intentFilter = new IntentFilter();
     // both are similar use one
         intentFilter.addAction(Intent.ACTION_AIRPLANE_MODE_CHANGED);
@@ -38,5 +39,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
+        // we  have to unregister when we close app otherwise will get error
+        unregisterReceiver(myFirstReceiver);
     }
 }
