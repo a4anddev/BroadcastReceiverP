@@ -16,31 +16,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <receiver android:name=".SecondReceiver" >
-
-            <intent-filter android:priority="20">
-
-                <action android:name="my.first.receiver" />
-
-            </intent-filter>
-
-        </receiver>
-
-
-        <receiver android:name=".MyFirstReceiver">
-
-            <intent-filter android:priority="30">
-                <action android:name="my.first.receiver"  />
-
-            </intent-filter>
-        </receiver>
-        <receiver android:name=".MainActivity$MyThirdReceiverInnerClass">
-        <intent-filter android:priority="40">
-
-            <action android:name="my.first.receiver" />
-        </intent-filter>
-
-        </receiver>
 
     </application>
 
